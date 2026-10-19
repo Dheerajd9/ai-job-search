@@ -113,6 +113,13 @@ REQUIRED_IGNORE_RULES = [
     "company_research/*.json",
     # Machine-local Claude Code user configuration and ad-hoc permissions approvals.
     ".claude/settings.local.json",
+    # Autopilot: profile (contact details, work authorization, salary),
+    # run state (every employer applied to) and run output (tailored PDFs,
+    # form screenshots with personal data). In CI these come from secrets and
+    # an orphan state branch - never from tracked files.
+    "autopilot/profile.yaml",
+    "autopilot/state/",
+    "autopilot/out/",
 ]
 
 # Negation (re-include) rules the template legitimately ships. .gitignore is

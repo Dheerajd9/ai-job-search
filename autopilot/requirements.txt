@@ -1,0 +1,6 @@
+# Autopilot runtime deps (the rest of the repo needs none of these).
+PyYAML>=6.0,<7
+reportlab>=4.2,<6
+playwright>=1.48,<2
+# test-only: PDF text-layer assertions
+pypdf>=4,<7

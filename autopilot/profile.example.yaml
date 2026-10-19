@@ -1,0 +1,82 @@
+# Autopilot profile — copy to autopilot/profile.yaml (gitignored) and fill in.
+# In GitHub Actions this file comes from the AUTOPILOT_PROFILE_B64 secret, never from the repo.
+#
+# HONESTY RULE: the tailoring step may only REORDER and SELECT the bullets and
+# skills below, plus write a short summary and cover letter grounded in them.
+# It cannot invent experience, so the quality of what you write here is the
+# quality of every application.
+
+contact:
+  first_name: "[FIRST]"
+  last_name: "[LAST]"
+  email: "[EMAIL]"
+  phone: "[PHONE]"            # E.164 style works best on forms, e.g. +1 614 555 0100
+  city: "[CITY]"
+  region: "[STATE/PROVINCE]"
+  country: "[COUNTRY]"
+  linkedin: "[LINKEDIN_URL]"
+  github: ""
+  portfolio: ""
+  current_company: ""         # Lever asks for this; leave empty if not employed
+
+headline: "[e.g. Data / MLOps Engineer — Spark, Databricks, Azure, Kubernetes]"
+
+skills:
+  - Python
+  - SQL
+
+certifications:
+  - name: "[CERT NAME]"
+    issuer: "[ISSUER]"
+    date: "[YYYY-MM]"
+
+education:
+  - degree: "[DEGREE]"
+    school: "[SCHOOL]"
+    location: "[CITY, COUNTRY]"
+    start: "[YYYY-MM]"
+    end: "[YYYY-MM]"
+    gpa: ""
+
+experience:
+  - id: job1                      # short unique id
+    title: "[REAL JOB TITLE]"     # use the title you actually held
+    company: "[EMPLOYER / CLIENT]"
+    location: "[CITY, STATE]"
+    start: "[YYYY-MM]"
+    end: "[YYYY-MM or Present]"
+    bullets:                      # 4-8 bullets each, specific + metrics
+      - id: job1-a
+        text: "[Built X using Y, which reduced Z by N%]"
+
+# Per country. Autopilot REFUSES to submit in a country whose two values are
+# still null — it never guesses legal answers on your behalf.
+work_authorization:
+  us: {authorized: null, needs_sponsorship: null}
+  ca: {authorized: null, needs_sponsorship: null}
+  in: {authorized: null, needs_sponsorship: null}
+
+salary_expectation:               # used only when a form REQUIRES it
+  us: ""
+  ca: ""
+  in: ""
+
+notice_period: "Immediately available"
+willing_to_relocate: true
+pronouns: ""                      # leave empty to skip
+eeo_policy: decline               # voluntary self-ID questions: always "decline to answer"
+# Many forms have a required "I acknowledge the privacy notice / consent to data
+# processing" box. true = autopilot ticks it for you; false = those jobs go to
+# the manual digest so you read the notice yourself.
+accept_application_privacy_consent: false
+
+# Extra screening-question answers. First regex (case-insensitive) that matches
+# the question label wins. A REQUIRED question nothing here can answer sends the
+# job to the manual digest instead of being guessed.
+answers:
+  - match: 'how did you (hear|find|learn)'
+    answer: "Company careers page"
+  - match: 'years of (professional )?experience'
+    answer: "[N]"
+  - match: '(previously|ever) (worked|been employed) (for|at|by)'
+    answer: "No"

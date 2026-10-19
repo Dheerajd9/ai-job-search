@@ -1,0 +1,17 @@
+<!doctype html><html><body>
+<form>
+ <ul>
+ <li class="application-question"><div class="application-label">Resume/CV ✱</div><div class="application-field"><input type="file" name="resume" required></div></li>
+ <li class="application-question"><div class="application-label">Full name ✱</div><div class="application-field"><input name="name" required></div></li>
+ <li class="application-question"><div class="application-label">Email ✱</div><div class="application-field"><input name="email" type="email" required></div></li>
+ <li class="application-question"><div class="application-label">Phone</div><div class="application-field"><input name="phone"></div></li>
+ <li class="application-question"><div class="application-label">Current company</div><div class="application-field"><input name="org"></div></li>
+ <li class="application-question"><div class="application-label">LinkedIn URL</div><div class="application-field"><input name="urls[LinkedIn]"></div></li>
+ <li class="application-question custom-question"><div class="application-label">Do you have experience with Kubeflow in production? ✱</div>
+   <div class="application-field"><label><input type="radio" name="cards[x][field0]" value="Yes" required> Yes</label><label><input type="radio" name="cards[x][field0]" value="No"> No</label></div></li>
+ <li class="application-question"><div class="application-label">Additional information</div><div class="application-field"><textarea name="comments"></textarea></div></li>
+ </ul>
+ <button type="submit">Submit application</button>
+</form>
+<script src="_success.js"></script>
+</body></html>

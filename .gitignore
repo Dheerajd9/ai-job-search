@@ -119,3 +119,8 @@ company_research/*.json
 
 # Brainstorm mockups (superpowers visual companion) - never ship
 .superpowers/
+
+# Autopilot (autopilot/README.md): personal profile, run state, run output.
+autopilot/profile.yaml
+autopilot/state/
+autopilot/out/

@@ -1,0 +1,61 @@
+# Autopilot config — copy to autopilot/config.yaml and edit.
+# Nothing personal lives here (that is profile.yaml), so this file is safe to commit.
+
+# true  = fill every form, take a screenshot, but NEVER click Submit.
+# false = really submit on Greenhouse / Lever / Ashby when every safety check passes.
+# Keep true for the first few runs and read the screenshots before flipping it.
+dry_run: true
+
+model: claude-sonnet-5-5          # Anthropic model used for scoring + tailoring
+min_fit_score: 75                 # 0-100; below this the job is skipped
+manual_digest_min_score: 65       # jobs worth a human look (non-ATS, CAPTCHA, unknown question)
+max_jobs_scored_per_run: 60       # caps Anthropic spend per run
+max_applications_per_run: 15      # hard cap on real submits per run
+max_per_company_per_30d: 2        # never spam one employer
+posted_within_days: 7
+
+# Title must match at least one role pattern (case-insensitive regex) ...
+roles:
+  data_engineer:      ['\bdata engineer', '\bbig data\b', '\betl (developer|engineer)', '\bdata platform engineer']
+  data_analyst:       ['\bdata analyst', '\banalytics engineer', '\bbi (analyst|developer|engineer)']
+  data_center:        ['\bdata ?cent(er|re)\b']
+  ai_engineer:        ['\bai engineer', '\bml engineer', '\bmachine learning engineer', '\bgenai\b', '\bllm engineer', '\bapplied ai']
+  forward_deployed:   ['\bforward[- ]deployed', '\bfde\b', '\bsolutions engineer.*(ai|data)']
+  mlops:              ['\bmlops\b', '\bml (platform|infrastructure|ops)', '\bmachine learning (platform|infrastructure)']
+
+# ... and must NOT match any of these.
+exclude_title: ['\bintern(ship)?\b', '\bprincipal\b', '\bdirector\b', '\bvp\b', '\bhead of\b', '\bmanager\b', '\bstaff\b', '\bphd\b']
+
+countries:
+  us:
+    enabled: true
+    # A location string matches when it contains any of these (case-insensitive).
+    locations: ['remote - us', 'remote, us', 'united states', 'remote (us', 'ohio', 'columbus', 'cleveland', 'cincinnati', 'dayton']
+    accept_plain_remote: true          # bare "Remote" counts as US
+    adzuna_where: ['Ohio', 'remote']   # Adzuna "where" queries
+  ca:
+    enabled: true
+    locations: ['canada', 'toronto', 'vancouver', 'montreal', 'ottawa', 'calgary', 'waterloo', 'remote - ca', 'remote, canada']
+    accept_plain_remote: false
+    adzuna_where: ['Toronto', 'Vancouver', 'Canada']
+  in:
+    enabled: true
+    locations: ['india', 'hyderabad', 'bengaluru', 'bangalore', 'pune', 'chennai', 'gurugram', 'gurgaon', 'noida', 'mumbai', 'remote - in']
+    accept_plain_remote: false
+    adzuna_where: ['Hyderabad', 'Bangalore', 'India']
+
+# Adzuna = broad discovery across US / CA / IN (free key: developer.adzuna.com).
+# Adzuna jobs are only auto-applied when their real apply page turns out to be
+# Greenhouse / Lever / Ashby; everything else goes to the manual digest.
+adzuna:
+  enabled: true
+  results_per_query: 50
+
+# Company job boards with public JSON APIs. Starter list — run
+#   python -m autopilot.run --check-boards
+# to see which tokens resolve, then prune/add. Token = the slug in the board URL:
+#   job-boards.greenhouse.io/<token>, jobs.lever.co/<token>, jobs.ashbyhq.com/<token>
+boards:
+  greenhouse: [databricks, stripe, airbnb, datadog, robinhood, coinbase, reddit, dropbox, samsara, instacart, lyft, pinterest, affirm, gitlab, elastic, mongodb, cloudflare, twilio, brex, anthropic, scaleai, figma, okta, toast, gusto, chime, discord, asana, hubspot, wayfair]
+  lever: [palantir, spotify, plaid, wealthsimple, netflix, attentive, crunchyroll]
+  ashby: [openai, notion, ramp, linear, cohere, perplexity, deel, snowflake, vercel, supabase, replit, posthog]

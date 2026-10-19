@@ -1,0 +1,12 @@
+{"jobs": [
+ {"id": 7001, "title": "Senior Data Engineer", "absolute_url": "https://www.example.com/careers?gh_jid=7001",
+  "location": {"name": "Remote - US"}, "updated_at": "2026-10-17T10:00:00-04:00", "first_published": "2026-10-16T09:00:00-04:00",
+  "company_name": "Acme Data",
+  "content": "&lt;p&gt;Build &lt;strong&gt;Spark&lt;/strong&gt; pipelines.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Python&lt;/li&gt;&lt;li&gt;Databricks&lt;/li&gt;&lt;/ul&gt;"},
+ {"id": 7002, "title": "Account Executive", "absolute_url": "https://boards.greenhouse.io/acme/jobs/7002",
+  "location": {"name": "New York, NY"}, "updated_at": "2026-10-17T10:00:00-04:00", "content": ""},
+ {"id": 7003, "title": "Data Engineering Manager", "absolute_url": "https://boards.greenhouse.io/acme/jobs/7003",
+  "location": {"name": "Indianapolis, Indiana"}, "updated_at": "2026-10-17T10:00:00-04:00", "content": ""},
+ {"id": 7004, "title": "Data Engineer II", "absolute_url": "https://boards.greenhouse.io/acme/jobs/7004",
+  "location": {"name": "Indianapolis, Indiana"}, "updated_at": "2026-10-17T10:00:00-04:00", "content": ""}
+], "meta": {"total": 4}}

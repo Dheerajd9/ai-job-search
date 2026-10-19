@@ -1,0 +1,34 @@
+<!doctype html><html><body>
+<h1>Senior Data Engineer</h1><p>Thank you for your interest in Acme. We are hiring.</p>
+<form id="application-form">
+ <label for="first_name">First Name*</label><input id="first_name" required>
+ <label for="last_name">Last Name*</label><input id="last_name" required>
+ <label for="email">Email*</label><input id="email" type="email" required>
+ <label for="phone">Phone*</label><input id="phone" type="tel" required>
+ <label for="resume">Resume/CV*</label><input id="resume" type="file" required style="display:none">
+ <label for="cover_letter">Cover Letter</label><input id="cover_letter" type="file" style="display:none">
+ <label for="q1">LinkedIn Profile</label><input id="q1">
+ <label for="q2">Are you legally authorized to work in the United States?*</label>
+ <select id="q2" required><option>Select...</option><option>Yes</option><option>No</option></select>
+ <label for="q3">Will you now or in the future require sponsorship for employment visa status?*</label>
+ <select id="q3" required><option>Select...</option><option>Yes</option><option>No</option></select>
+ <label id="q4l">How did you hear about this job?*</label>
+ <div><input id="q4" role="combobox" aria-labelledby="q4l" aria-required="true" autocomplete="off">
+   <div id="q4menu" role="listbox" style="display:none"><div role="option">Job board</div><div role="option">Company careers page</div><div role="option">Referral</div></div></div>
+ <fieldset><legend>Gender</legend>
+   <label><input type="radio" name="gender" value="m"> Male</label>
+   <label><input type="radio" name="gender" value="f"> Female</label>
+   <label><input type="radio" name="gender" value="d"> I don't wish to answer</label></fieldset>
+ <fieldset><legend>Veteran Status</legend>
+   <label for="v1">I am a veteran</label><input type="radio" id="v1" name="vet">
+   <label for="v2">I am not a veteran</label><input type="radio" id="v2" name="vet">
+   <label for="v3">Decline to self identify</label><input type="radio" id="v3" name="vet"></fieldset>
+ <button type="submit">Submit application</button>
+</form>
+<script>
+ const c = document.getElementById('q4'), m = document.getElementById('q4menu');
+ c.addEventListener('click', () => m.style.display = 'block');
+ m.querySelectorAll('[role=option]').forEach(o => o.addEventListener('click', () => { c.value = o.textContent; m.style.display = 'none'; }));
+</script>
+<script src="_success.js"></script>
+</body></html>

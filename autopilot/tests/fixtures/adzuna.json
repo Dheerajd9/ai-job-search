@@ -1,0 +1,9 @@
+{"count": 2, "results": [
+ {"id": "4400001", "title": "<strong>Data Center</strong> Technician", "description": "Rack and stack servers...",
+  "redirect_url": "https://www.adzuna.com/land/ad/4400001", "company": {"display_name": "Cloudy Inc"},
+  "location": {"display_name": "Columbus, Franklin County"}, "created": "2026-10-17T12:00:00Z",
+  "salary_min": 60000, "salary_max": 75000, "salary_is_predicted": "0"},
+ {"id": "4400002", "title": "Data Analyst Intern", "description": "Summer.",
+  "redirect_url": "https://www.adzuna.com/land/ad/4400002", "company": {"display_name": "X"},
+  "location": {"display_name": "Dayton, Ohio"}, "created": "2026-10-17T12:00:00Z"}
+]}
